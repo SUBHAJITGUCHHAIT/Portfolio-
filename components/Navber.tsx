@@ -1,0 +1,197 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Sun, MoonStar } from "lucide-react";
+import { useTheme } from "next-themes";
+
+const navItems = [
+  { name: "Home", link: "home" },
+  { name: "About", link: "about" },
+  { name: "Skills", link: "skills" },
+  { name: "Projects", link: "projects" },
+  { name: "Contact", link: "contact" },
+];
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState("Home");
+  const { setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const handleScroll = (
+    e: React.MouseEvent,
+    targetId: string,
+    name: string
+  ) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      setActive(name);
+    }
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -60% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const current = navItems.find(
+            (item) => item.link === entry.target.id
+          );
+          if (current) setActive(current.name);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    navItems.forEach((item) => {
+      const element = document.getElementById(item.link);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [mounted]);
+
+  if (!mounted) return null;
+
+  return (
+    <>
+      <motion.nav
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="fixed top-0 inset-x-0 z-50 w-full"
+      >
+        <div className="flex items-center justify-between border-b border-black/5 dark:border-white/5 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl px-6 py-3 shadow-sm">
+          <button
+            onClick={(e) => handleScroll(e, "home", "Home")}
+            className="text-2xl font-bold italic tracking-tighter text-slate-900 dark:text-white"
+          >
+            SOUMYA
+          </button>
+
+          <ul className="hidden md:flex items-center gap-2">
+            {navItems.map((item) => {
+              return (
+                <li
+                  key={item.name}
+                  className="relative flex flex-col items-center px-4 py-2"
+                >
+                  <button
+                    onClick={(e) => handleScroll(e, item.link, item.name)}
+                    className={`relative z-10 text-sm font-medium transition-colors duration-300 ${
+                      active === item.name
+                        ? "text-purple-600 dark:text-purple-400"
+                        : "text-slate-600 dark:text-slate-300 hover:text-purple-500"
+                    }`}
+                  >
+                    <motion.span
+                      initial={false}
+                      whileHover={{ opacity: 1, scale: 1 }}
+                      className="absolute inset-0 -z-10 bg-purple-500/15 rounded-full opacity-0 scale-75 transition-all"
+                      style={{ padding: "8px 16px", margin: "-8px -16px" }}
+                    />
+                    {item.name}
+                  </button>
+
+                  {active === item.name && (
+                    <motion.span
+                      layoutId="activeNavIndicator"
+                      className="absolute -bottom-1 h-1 w-1/2 rounded-full bg-purple-500"
+                      initial={false}
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="flex items-center gap-2 border rounded-2xl px-2 border-slate-200 dark:border-slate-800">
+            <button
+              onClick={() =>
+                setTheme(resolvedTheme === "dark" ? "light" : "dark")
+              }
+              className="rounded-lg p-2 text-slate-900 dark:text-white flex items-center gap-2"
+            >
+              {resolvedTheme === "dark" ? (
+                <Sun size={18} />
+              ) : (
+                <MoonStar size={18} />
+              )}
+              <span className="text-xs font-semibold hidden sm:block uppercase tracking-wider">
+                {resolvedTheme === "dark" ? "Light" : "Dark"}
+              </span>
+            </button>
+
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden p-2 text-slate-900 dark:text-white"
+            >
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </div>
+      </motion.nav>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="fixed inset-x-6 top-20 z-40 md:hidden"
+          >
+            <div className="rounded-3xl bg-white dark:bg-slate-900 p-4 shadow-2xl border border-slate-200 dark:border-slate-800">
+              {navItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={(e) => handleScroll(e, item.link, item.name)}
+                  className={`block w-full rounded-2xl px-4 py-4 text-center text-sm font-bold transition-all ${
+                    active === item.name
+                      ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
+                      : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
+                  }`}
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
