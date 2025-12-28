@@ -8,6 +8,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname:"/**"
+      },
+      {
+        protocol: "https",
         hostname: "raw.githubusercontent.com",
       },
       {

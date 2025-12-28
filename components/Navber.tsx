@@ -24,6 +24,14 @@ export default function Navbar() {
     return () => clearTimeout(timeout);
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
+
   const handleScroll = (
     e: React.MouseEvent,
     targetId: string,
@@ -91,6 +99,7 @@ export default function Navbar() {
         className="fixed top-0 inset-x-0 z-50 w-full"
       >
         <div className="flex items-center justify-between border-b border-black/5 dark:border-white/5 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl px-6 py-3 shadow-sm">
+          {/* Logo */}
           <button
             onClick={(e) => handleScroll(e, "home", "Home")}
             className="text-2xl font-bold italic tracking-tighter text-slate-900 dark:text-white"
@@ -157,10 +166,10 @@ export default function Navbar() {
             </button>
 
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen(true)}
               className="md:hidden p-2 text-slate-900 dark:text-white"
             >
-              {isOpen ? <X size={20} /> : <Menu size={20} />}
+              <Menu size={20} />
             </button>
           </div>
         </div>
@@ -168,28 +177,55 @@ export default function Navbar() {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            className="fixed inset-x-6 top-20 z-40 md:hidden"
-          >
-            <div className="rounded-3xl bg-white dark:bg-slate-900 p-4 shadow-2xl border border-slate-200 dark:border-slate-800">
-              {navItems.map((item) => (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-60"
+            />
+
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 h-full w-[75%] max-w-sm bg-white dark:bg-slate-950 shadow-2xl z-70 p-6 flex flex-col"
+            >
+              <div className="flex justify-end mb-8">
                 <button
-                  key={item.name}
-                  onClick={(e) => handleScroll(e, item.link, item.name)}
-                  className={`block w-full rounded-2xl px-4 py-4 text-center text-sm font-bold transition-all ${
-                    active === item.name
-                      ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-                      : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
-                  }`}
+                  onClick={() => setIsOpen(false)}
+                  className="p-2 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
                 >
-                  {item.name}
+                  <X size={28} />
                 </button>
-              ))}
-            </div>
-          </motion.div>
+              </div>
+
+              {/* Sidebar Links */}
+              <div className="flex flex-col gap-4">
+                {navItems.map((item) => (
+                  <button
+                    key={item.name}
+                    onClick={(e) => handleScroll(e, item.link, item.name)}
+                    className={`block w-full rounded-xl px-4 py-4 text-left text-lg font-bold transition-all ${
+                      active === item.name
+                        ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
+                        : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-purple-600"
+                    }`}
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </div>
+
+              <div className="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 text-center">
+                <p className="text-xs text-slate-500">
+                  &copy; 2025 Soumyadip Portfolio
+                </p>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

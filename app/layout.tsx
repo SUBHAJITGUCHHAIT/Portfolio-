@@ -18,7 +18,7 @@ export const viewport: Viewport = {
 
 // SEO Metadata
 export const metadata: Metadata = {
-  metadataBase: new URL("https://soumyadip-portfolio.vercel.app"),
+  metadataBase: new URL("https://portfolio-delta-lac-26.vercel.app/"),
 
   title: "Soumyadip Maity | Full Stack Developer & AI Enthusiast",
   description:
@@ -32,20 +32,20 @@ export const metadata: Metadata = {
     "React Developer India",
   ],
   authors: [
-    { name: "Soumyadip Maity", url: "https://soumyadip-portfolio.vercel.app" },
+    { name: "Soumyadip Maity", url: "https://portfolio-delta-lac-26.vercel.app/" },
   ],
   icons: {
-    icon: "/soumya.jpeg",
-    apple: "/soumya.jpeg",
+    icon: "https://res.cloudinary.com/dvbqa8mtw/image/upload/v1747535455/soumyadip_csufrp.jpg",
+    apple: "https://res.cloudinary.com/dvbqa8mtw/image/upload/v1747535455/soumyadip_csufrp.jpg",
   },
   openGraph: {
     title: "Soumyadip Maity | Portfolio",
     description: "Digital Architect & Full Stack Developer",
-    url: "https://soumyadip-portfolio.vercel.app",
+    url: "https://portfolio-delta-lac-26.vercel.app/",
     siteName: "Soumyadip Portfolio",
     images: [
       {
-        url: "/soumya.jpeg",
+        url: "https://res.cloudinary.com/dvbqa8mtw/image/upload/v1747535455/soumyadip_csufrp.jpg",
         width: 800,
         height: 600,
       },
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Soumyadip Maity | Full Stack Developer",
     description: "Building the future of web with code and AI.",
-    images: ["/soumya.jpeg"],
+    images: ["https://res.cloudinary.com/dvbqa8mtw/image/upload/v1747535455/soumyadip_csufrp.jpg"],
   },
 };
 
