@@ -23,6 +23,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "simpleicons.org",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      }
     ],
   },
 };

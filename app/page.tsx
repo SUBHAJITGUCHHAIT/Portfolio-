@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/Navber";
 import Home from "@/components/Home";
 import Footer from "@/components/Footer";
+import Education from "@/components/Education";
 
 const About = dynamic(() => import("@/components/About"), {
   loading: () => <div className="h-screen bg-transparent" />,
@@ -34,6 +35,7 @@ export default function Page() {
       <Skills />
       <Achievements />
       <Projects />
+      <Education/>
       <Contact />
       <Footer />
     </main>

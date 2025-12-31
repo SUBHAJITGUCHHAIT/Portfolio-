@@ -4,30 +4,33 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Quote } from "lucide-react";
+import logo from "@/public/soumya.png";
 
 export default function Home() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center pt-24 pb-12 md:pt-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950 transition-colors duration-500 overflow-hidden relative"
+      className="min-h-screen flex items-center justify-center pt-28 pb-12 md:pt-24 px-6 md:px-12 lg:px-8 bg-white dark:bg-slate-950 transition-colors duration-500 overflow-hidden relative"
     >
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-125 lg:h-125 bg-purple-500/10 blur-[80px] md:blur-[120px] rounded-full -z-10" />
 
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 lg:gap-24">
-        <div className="w-full md:w-3/5 text-center md:text-left order-2 md:order-1">
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+        
+        <div className="w-full lg:w-3/5 text-center lg:text-left order-2 lg:order-1">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-purple-600 font-bold tracking-[0.15em] md:tracking-[0.2em] uppercase text-[10px] md:text-sm mb-4">
+            <h2 className="text-purple-600 font-bold tracking-[0.15em] md:tracking-[0.2em] uppercase text-[10px] xs:text-xs md:text-sm mb-4">
               Building the Future of Web
             </h2>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-slate-900 dark:text-white leading-[1.1] md:leading-[0.9] mb-6">
-              DIGITAL <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">
-                ARCHITECT
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-black text-slate-900 dark:text-white leading-[1.1] md:leading-[1.1] lg:leading-[0.9] mb-6">
+              FULL STACK <br />
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-600 to-blue-500">
+                DEVELOPER
               </span>
             </h1>
           </motion.div>
@@ -36,7 +39,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-sm sm:text-base md:text-xl text-slate-500 dark:text-slate-400 max-w-lg mx-auto md:mx-0 mb-8 md:mb-10 leading-relaxed font-medium"
+            className="text-sm sm:text-base md:text-xl text-slate-500 dark:text-slate-400 max-w-lg mx-auto lg:mx-0 mb-8 md:mb-10 leading-relaxed font-medium"
           >
             I&apos;m{" "}
             <span className="text-slate-900 dark:text-white underline decoration-purple-500/30 underline-offset-4 font-bold">
@@ -49,7 +52,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="flex flex-wrap justify-center md:justify-start gap-4"
+            className="flex flex-wrap justify-center lg:justify-start gap-4"
           >
             <button
               onClick={(e) => {
@@ -80,19 +83,18 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="w-full md:w-2/5 flex justify-center order-1 md:order-2"
+          className="w-full lg:w-2/5 flex justify-center order-1 lg:order-2"
         >
           <div className="relative group cursor-pointer">
-            {/* Hover Glow */}
             <div className="absolute inset-0 bg-purple-500/20 blur-2xl md:blur-3xl rounded-full -z-10 animate-pulse group-hover:bg-purple-500/40 transition-all duration-500" />
 
             <motion.div
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-96 md:h-96 rounded-[2rem] md:rounded-[3.5rem] overflow-hidden border-2 border-slate-200 dark:border-slate-800 p-1.5 md:p-2 bg-white dark:bg-slate-900 shadow-2xl group-hover:border-purple-500/50 transition-colors duration-500"
+              className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-96 lg:h-96 rounded-[2rem] md:rounded-[3.5rem] overflow-hidden border-2 border-slate-200 dark:border-slate-800 p-1.5 md:p-2 bg-white dark:bg-slate-900 shadow-2xl group-hover:border-purple-500/50 transition-colors duration-500"
             >
               <Image
-                src="https://res.cloudinary.com/dvbqa8mtw/image/upload/v1747535455/soumyadip_csufrp.jpg"
+                src={logo}
                 alt="Soumyadip"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
@@ -101,6 +103,7 @@ export default function Home() {
               />
             </motion.div>
 
+            {/* Quote Box */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}

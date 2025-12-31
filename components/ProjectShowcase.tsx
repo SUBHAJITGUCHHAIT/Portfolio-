@@ -1,37 +1,29 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { ExternalLink, Github, Info } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+  ExternalLink,
+  Github,
+  Lock,
+  ChevronLeft,
+  ChevronRight,
+  Info,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
+import UcoderImage from "../public/project/ucoder.png";
 
 const projects = [
   {
     title: "Ucoder",
     description:
       "A full-stack solution with Express and Vite for service-based applications.",
-    tech: [
-      "Express",
-      "Vite",
-      "MongoDB",
-      "Radix UI",
-      "Tailwind CSS",
-      "CI/CD",
-      "Docker",
-    ],
+    tech: ["Express", "Vite", "MongoDB", "Tailwind CSS", "Docker"],
     github: "",
     live: "https://www.ucoder.in",
-    darkHover: "dark:hover:bg-blue-900/40 dark:hover:border-blue-500/50",
-    lightHover: "hover:bg-blue-600",
+    image: UcoderImage,
   },
   {
     title: "Mini Bank",
@@ -40,215 +32,252 @@ const projects = [
     tech: ["React", "Node.js", "MongoDB", "Vite", "Bootstrap"],
     github: "https://github.com/soumydip/myminiBank.github.io",
     live: "",
-    darkHover: "dark:hover:bg-purple-900/40 dark:hover:border-purple-500/50",
-    lightHover: "hover:bg-purple-600",
-  },
-  {
-    title: "Weather Application",
-    description:
-      "Weather forecasting app with real-time updates and geolocation using OpenWeather API.",
-    tech: ["TypeScript", "Next.js", "OpenWeather API"],
-    github: "https://github.com/soumydip/weatherapplication",
-    live: "",
-    darkHover: "dark:hover:bg-emerald-900/40 dark:hover:border-emerald-500/50",
-    lightHover: "hover:bg-emerald-600",
+    image:
+      "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000",
   },
   {
     title: "Ucoder Insights",
     description:
       "Lightweight analytics dashboard with full SDKs to track application traffic and errors.",
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Web Beacon API",
-      "Node.js",
-      "Docker",
-      "DigitalOcean",
-    ],
+    tech: ["Next.js", "TypeScript", "Node.js", "Docker"],
     github: "",
     live: "",
-    darkHover: "dark:hover:bg-orange-900/40 dark:hover:border-orange-500/50",
-    lightHover: "hover:bg-orange-600",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000",
   },
   {
     title: "Music Hub",
     description:
       "A dedicated music platform for streaming and discovering new tracks with a modern UI.",
-    tech: ["React", "CSS", "Bootstrap", "FontAwesome", "SCSS"],
+    tech: ["React", "CSS", "Bootstrap", "SCSS"],
     github: "",
     live: "",
-    darkHover: "dark:hover:bg-pink-900/40 dark:hover:border-pink-500/50",
-    lightHover: "hover:bg-pink-600",
+    image:
+      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1000",
   },
   {
-    title: "Brest cencer detection",
+    title: "Breast Cancer Detection",
     description:
-      "An AI-powered  application for early detection of breast cancer using machine learning models.",
-    tech: ["Python", "Pandas", "Numpy", "Scikit-learn", "Mathplotlib"],
-    github: "",
+      "An AI-powered application for early detection of breast cancer using machine learning models.",
+    tech: ["Python", "Pandas", "Scikit-learn", "Random Forest"],
+    github: "https://github.com/soumydip/Breast_Cancer_Prediction",
     live: "",
-    darkHover: "dark:hover:bg-indigo-900/40 dark:hover:border-indigo-500/50",
-    lightHover: "hover:bg-indigo-600",
+    image:
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000",
   },
   {
     title: "Crypto Market Tracker",
     description:
       "Analyzing cryptocurrency price trends and market volatility using time-series data analysis.",
-    tech: ["Python", "Pandas", "NumPy", "Matplotlib"],
-    github: "",
+    tech: ["Python", "Pandas", "NumPy", "Seaborn"],
+    github: "https://github.com/soumydip/Cryptocurrency_analysis",
     live: "",
-    darkHover: "dark:hover:bg-amber-900/40 dark:hover:border-amber-500/50",
-    lightHover: "hover:bg-amber-600",
-  },
-  {
-    title: "Climate Data Visualizer",
-    description:
-      "Global temperature anomaly tracking and carbon emission analysis over the last 50 years.",
-    tech: ["Python", "Pandas", "Matplotlib", "Seaborn"],
-    github: "",
-    live: "",
-    darkHover: "dark:hover:bg-emerald-900/40 dark:hover:border-emerald-500/50",
-    lightHover: "hover:bg-emerald-600",
-  },
-  {
-    title: "Student Success Predictor",
-    description:
-      "A machine learning model to predict student performance based on behavioral and academic data.",
-    tech: ["Python", "Scikit-learn", "Pandas", "NumPy"],
-    github: "",
-    live: "",
-    darkHover: "dark:hover:bg-rose-900/40 dark:hover:border-rose-500/50",
-    lightHover: "hover:bg-rose-600",
+    image:
+      "https://images.unsplash.com/photo-1621761191319-c6fb62004040?q=80&w=1000",
   },
 ];
 
-export default function Projects() {
+export default function StackedProjects() {
+  const [index, setIndex] = useState(0);
+
+  const nextStep = () => setIndex((prev) => (prev + 1) % projects.length);
+  const prevStep = () =>
+    setIndex((prev) => (prev - 1 + projects.length) % projects.length);
+
+  useEffect(() => {
+    const timer = setInterval(nextStep, 7000);
+    return () => clearInterval(timer);
+  }, [index]);
+
   return (
     <section
       id="projects"
-      className="py-24 px-6  dark:bg-slate-950 transition-colors duration-300"
+      className="py-20 px-4 dark:bg-slate-950 overflow-hidden transition-all duration-500"
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col items-center mb-16 text-center">
-          <motion.div
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
+        <div className="text-center mb-12 md:mb-16">
+          <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block"
+            className="text-4xl font-bold text-slate-900 dark:text-white relative group cursor-default mb-6"
           >
-            <h2 className="text-4xl font-bold text-slate-900 dark:text-white relative group pb-3">
-              Featured <span className="text-purple-600">Projects</span>
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-1/2 bg-purple-500 rounded-full transition-all duration-500 group-hover:w-full" />
-            </h2>
-          </motion.div>
-          <p className="mt-6 text-slate-500 dark:text-slate-400 max-w-md">
-            A selection of my favorite works, built with modern web
-            technologies.
-          </p>
+            Featured <span className="text-purple-600">Project</span>
+            <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 h-0.75 w-1/2 bg-purple-500 rounded-full transition-all duration-500 group-hover:w-full" />
+          </motion.h2>
         </div>
-       
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <Card
-                className={`group relative h-full flex flex-col transition-all duration-500 border border-slate-200 dark:border-slate-800  dark:bg-slate-900 overflow-hidden shadow-sm ${project.lightHover} ${project.darkHover} cursor-pointer`}
-              >
-                <div className="relative z-10 flex flex-col h-full p-2">
-                  <CardHeader className="pb-4">
-                    <CardTitle className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-white transition-colors duration-300">
-                      {project.title}
-                    </CardTitle>
-                    <CardDescription className="text-slate-500 dark:text-slate-400 group-hover:text-slate-100 transition-colors duration-300 min-h-15">
-                      {project.description || "Project details coming soon..."}
-                    </CardDescription>
-                  </CardHeader>
-
-                  <CardContent className="grow">
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((item, idx) => (
-                        <Badge
-                          key={idx}
-                          variant="secondary"
-                          className="bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 group-hover:bg-white/20 group-hover:text-white border-none transition-colors"
-                        >
-                          {item}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-
-                  <CardFooter className="flex justify-between gap-3 pt-6 border-t border-slate-200/50 dark:border-slate-800/50 mt-4 group-hover:border-white/20">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      disabled={!project.github}
-                      className="flex-1 bg-transparent border-slate-300 dark:border-slate-700 text-slate-700 dark:text-white group-hover:border-white group-hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                      asChild={!!project.github}
-                    >
-                      {project.github ? (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Github className="mr-2 h-4 w-4" /> Code
-                        </a>
-                      ) : (
-                        <span className="flex items-center justify-center">
-                          <Github className="mr-2 h-4 w-4 inline" /> Code
-                        </span>
-                      )}
-                    </Button>
-
-                    <Button
-                      size="sm"
-                      disabled={!project.live}
-                      className="flex-1 bg-purple-600/50 hover:text-white text-white  border-none group-hover:bg-white group-hover:text-slate-900 transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed dark:hover:text-black  dark:hover:bg-amber-100    disabled:bg-slate-400"
-                      asChild={!!project.live}
-                    >
-                      {project.live ? (
-                        <a
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <ExternalLink className="mr-2 h-4 w-4" /> Live
-                        </a>
-                      ) : (
-                        <span className="flex items-center justify-center">
-                          <ExternalLink className="mr-2 h-4 w-4 inline" /> Live
-                        </span>
-                      )}
-                    </Button>
-                  </CardFooter>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12 max-w-2xl mx-auto flex items-start gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800"
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="mb-12 max-w-xl flex items-center gap-4 p-4 rounded-3xl bg-slate-100/50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800"
         >
-          <Info size={20} className="text-purple-500 mt-0.5 shrink-0" />
-
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed italic">
-            <span className="font-bold mx-2 text-slate-700 dark:text-slate-300 not-italic">
-              Note:
-            </span>
-            Some projects and GitHub repositories do not have live demos or
-            public links yet due to Private Repositories or because they are not
-            currently hosted.
+          <Info size={18} className="text-purple-500 shrink-0" />
+          <p className="text-[10px] md:text-xs text-slate-500">
+            Click on the side cards or drag them to navigate through the
+            projects.
           </p>
         </motion.div>
+        <div className="relative w-full flex items-center justify-center h-130 md:h-150">
+          <button
+            onClick={prevStep}
+            className="absolute left-0 md:left-4 z-50 p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 dark:text-white text-slate-800 hover:bg-purple-600 hover:text-white transition-all hidden sm:flex shadow-2xl"
+          >
+            <ChevronLeft size={28} />
+          </button>
+
+          <div className="relative w-full max-w-300 h-full flex items-center justify-center">
+            <AnimatePresence initial={false}>
+              {projects.map((project, i) => {
+                const isCenter = i === index;
+                const isLeft =
+                  i === (index - 1 + projects.length) % projects.length;
+                const isRight = i === (index + 1) % projects.length;
+
+                if (!isCenter && !isLeft && !isRight) return null;
+
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{
+                      zIndex: isCenter ? 30 : 10,
+                      x: isCenter ? 0 : isLeft ? "-88%" : "88%",
+                      scale: isCenter ? 1 : 0.8,
+                      opacity: isCenter ? 1 : 0.35,
+                      filter: isCenter ? "blur(0px)" : "blur(1px)",
+                    }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    onClick={() => {
+                      if (isLeft) prevStep();
+                      if (isRight) nextStep();
+                    }}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    onDragEnd={(_, info) => {
+                      if (info.offset.x > 80) prevStep();
+                      else if (info.offset.x < -80) nextStep();
+                    }}
+                    className={`absolute w-[92%] md:w-[72%] h-full rounded-[40px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl overflow-hidden flex flex-col ${
+                      isCenter
+                        ? "cursor-default"
+                        : "cursor-pointer hover:opacity-60"
+                    } transition-all duration-300`}
+                  >
+                    <div className="relative h-[62%] md:h-[65%] w-full overflow-hidden">
+                      <Image
+                        src={project.image}
+                        fill
+                        className="object-cover"
+                        alt={project.title}
+                      />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/30 to-transparent p-6 md:p-10 flex flex-col justify-end">
+                        <h3 className="text-2xl md:text-4xl font-bold text-white mb-3 md:mb-5 drop-shadow-lg">
+                          {project.title}
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5 md:gap-2">
+                          {project.tech.slice(0, 5).map((t, idx) => (
+                            <Badge
+                              key={idx}
+                              className="bg-white/20 backdrop-blur-md text-white border-none px-2.5 py-1 text-[9px] md:text-xs"
+                            >
+                              {t}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      className={`p-6 md:p-10 flex flex-col justify-between grow ${
+                        !isCenter && "pointer-events-none opacity-0"
+                      }`}
+                    >
+                      <p className="text-slate-600 dark:text-slate-400 text-xs md:text-base leading-relaxed line-clamp-2">
+                        {project.description}
+                      </p>
+
+                      <div className="flex gap-3 md:gap-4 mt-6">
+                        {project.github ? (
+                          <Button
+                            variant="outline"
+                            size="lg"
+                            className="flex-1 rounded-2xl md:py-7 border-slate-200 dark:border-slate-700 h-10 md:h-12 text-xs md:text-sm"
+                            asChild
+                          >
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Github size={16} className="mr-2" /> Code
+                            </a>
+                          </Button>
+                        ) : (
+                          <Button
+                            disabled
+                            size="lg"
+                            variant="outline"
+                            className="flex-1 rounded-2xl opacity-50 h-10 md:h-12 text-xs md:text-sm bg-slate-50 dark:bg-slate-800"
+                          >
+                            <Lock size={14} className="mr-2" /> Private
+                          </Button>
+                        )}
+
+                        {project.live ? (
+                          <Button
+                            size="lg"
+                            className="flex-1 bg-purple-600 text-white rounded-2xl shadow-xl hover:bg-purple-700 h-10 md:h-12 text-xs md:text-sm"
+                            asChild
+                          >
+                            <a
+                              href={project.live}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink size={16} className="mr-2" /> Live
+                            </a>
+                          </Button>
+                        ) : (
+                          <Button
+                            disabled
+                            size="lg"
+                            variant="outline"
+                            className="flex-1 rounded-2xl opacity-50 h-10 md:h-12 text-xs md:text-sm bg-slate-50 dark:bg-slate-800"
+                          >
+                            <Lock size={14} className="mr-2" /> No Demo
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </div>
+
+          <button
+            onClick={nextStep}
+            className="absolute right-0 md:right-4 z-50 p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 dark:text-white text-slate-800 hover:bg-purple-600 hover:text-white transition-all hidden sm:flex shadow-2xl"
+          >
+            <ChevronRight size={28} />
+          </button>
+        </div>
+
+        <div className="flex gap-3 mt-12 md:mt-16">
+          {projects.map((_, i) => (
+            <motion.button
+              key={i}
+              onClick={() => setIndex(i)}
+              initial={false}
+              animate={{
+                width: i === index ? 40 : 12,
+                backgroundColor: i === index ? "#9333ea" : "#cbd5e1",
+              }}
+              className="h-3 rounded-full transition-all duration-300"
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

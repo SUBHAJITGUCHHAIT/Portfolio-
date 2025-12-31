@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, MoonStar } from "lucide-react";
 import { useTheme } from "next-themes";
-
 const navItems = [
   { name: "Home", link: "home" },
   { name: "About", link: "about" },
   { name: "Skills", link: "skills" },
   { name: "Projects", link: "projects" },
+  { name: "Education", link: "education" },
   { name: "Contact", link: "contact" },
 ];
 
