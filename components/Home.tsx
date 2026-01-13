@@ -4,7 +4,6 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Quote } from "lucide-react";
-import logo from "@/public/soumya.png";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
 
       {/* Main Container */}
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
-        
         <div className="w-full lg:w-3/5 text-center lg:text-left order-2 lg:order-1">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -45,7 +43,8 @@ export default function Home() {
             <span className="text-slate-900 dark:text-white underline decoration-purple-500/30 underline-offset-4 font-bold">
               Soumyadip
             </span>
-            . I craft seamless digital solutions where code meets creativity.
+            , Specializing in MERN & TypeScript to craft scalable web
+            applications and AI solutions.
           </motion.p>
 
           <motion.div
@@ -94,7 +93,7 @@ export default function Home() {
               className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-96 lg:h-96 rounded-[2rem] md:rounded-[3.5rem] overflow-hidden border-2 border-slate-200 dark:border-slate-800 p-1.5 md:p-2 bg-white dark:bg-slate-900 shadow-2xl group-hover:border-purple-500/50 transition-colors duration-500"
             >
               <Image
-                src={logo}
+                src="https://res.cloudinary.com/dkqi9h8yw/image/upload/v1768277924/qcywx8qervf0iirwbmvu.png"
                 alt="Soumyadip"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"

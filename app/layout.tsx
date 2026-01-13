@@ -2,8 +2,13 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { StructuredData } from "@/components/JsonLTD";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+});
 
 export const viewport: Viewport = {
   themeColor: [
@@ -12,6 +17,7 @@ export const viewport: Viewport = {
   ],
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
 };
 
 export const metadata: Metadata = {
@@ -21,45 +27,29 @@ export const metadata: Metadata = {
     default: "Soumyadip Maity | Full Stack Developer & AI Enthusiast",
     template: "%s | Soumyadip Maity",
   },
+
   description:
-    "Official portfolio of Soumyadip Maity. Specialized in MERN Stack, Next.js, and AI solutions with Python. Building modern, scalable web applications.",
+    "Soumyadip Maity - Full Stack Developer crafting scalable web applications with MERN Stack, Next.js & AI. Available for freelance projects.",
 
   keywords: [
     "Soumyadip Maity",
-    "Soumyadip",
-    "Full Stack Developer India",
+    "Full Stack Developer",
     "MERN Stack Developer",
-    "Next.js Expert",
-    "AI Enthusiast",
-    "Software Engineer Portfolio",
-    "Web Developer West Bengal",
-    "full stack developer",
-    "next.js developer",
-    "react developer",
-    "node.js developer",
-    "python developer",
-    "ai solutions developer",
-    "soumyadip maity portfolio",
-    "soumyadip maity developer",
-    "soumyadip maity full stack",
-    "soumyadip maity ai enthusiast",
+
+    "Web Developer Kolkata",
+    "Full Stack Developer India",
+    "Developer West Bengal",
+
+    "React Developer",
+    "Next.js Developer",
+    "Node.js Developer",
+    "TypeScript Developer",
     "MongoDB Developer",
     "Express.js Developer",
-    "JavaScript Developer",
-    "TypeScript Developer",
-    "Frontend Developer",
-    "Backend Developer",
+    "Typescript Developer",
+    "Freelance Web Developer",
+    "AI Solutions Developer",
     "Software Engineer",
-    "Web Application Developer",
-    "Tailwind CSS Specialist",
-    "Portfolio Website",
-    "nextjs developer india",
-    "nextjs developer west bengal",
-    "nextjs developer kolkata",
-    "nextjs developer",
-    "mern stack developer india",
-    "mern stack developer west bengal",
-    "mern stack developer kolkata",
   ],
 
   authors: [
@@ -71,6 +61,8 @@ export const metadata: Metadata = {
   creator: "Soumyadip Maity",
   publisher: "Soumyadip Maity",
 
+  category: "Technology",
+  classification: "Portfolio Website",
   verification: {
     google: "sNv55sfGvBeZ7asoFMOnxlrAWg8zY5Byk8gV0znbAtM",
   },
@@ -92,23 +84,27 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/soumya.png",
-    shortcut: "/soumya.png",
-    apple: "/soumya.png",
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
-
+  manifest: "/site.webmanifest",
   openGraph: {
-    title: "Soumyadip Maity | Portfolio",
+    title: "Soumyadip Maity | Full Stack Developer",
     description:
-      "Digital Architect & Full Stack Developer building the future with Code and AI.",
+      "Crafting scalable web applications with MERN Stack, Next.js & Typescript.",
     url: "https://portfolio-delta-lac-26.vercel.app/",
-    siteName: "Soumyadip Portfolio",
+    siteName: "Soumyadip Maity Portfolio",
     images: [
       {
-        url: "/soumya.png",
+        url: "https://res.cloudinary.com/dkqi9h8yw/image/upload/v1768277924/qcywx8qervf0iirwbmvu.png",
         width: 1200,
         height: 630,
-        alt: "Soumyadip Maity Portfolio Preview",
+        alt: "Soumyadip Maity - Full Stack Developer Portfolio",
+        type: "image/png",
       },
     ],
     locale: "en_US",
@@ -118,10 +114,15 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Soumyadip Maity | Full Stack Developer",
-    description: "Building the future of web with code and AI.",
-    images: ["/soumya.png"],
+    description:
+      "Crafting scalable web apps with MERN Stack, Next.js & Typescript. View my projects →",
+    images: ["https://res.cloudinary.com/dkqi9h8yw/image/upload/v1768277924/qcywx8qervf0iirwbmvu.png"],
     creator: "@soumyadip2maity",
     site: "@soumyadip2maity",
+  },
+
+  other: {
+    "google-site-verification": "sNv55sfGvBeZ7asoFMOnxlrAWg8zY5Byk8gV0znbAtM",
   },
 };
 
@@ -132,6 +133,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <head>
+        <StructuredData />
+      </head>
       <body
         className={`${inter.className} antialiased selection:bg-purple-500/30 selection:text-purple-600 dark:selection:text-purple-400`}
       >
