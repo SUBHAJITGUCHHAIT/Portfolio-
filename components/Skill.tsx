@@ -68,19 +68,9 @@ const skills = [
     desc: "Building accessible and unstyled UI components for React.",
   },
   {
-    name: "Docker",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-    desc: "Containerizing applications for consistent development and deployment.",
-  },
-  {
     name: "Git & GitHub",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
     desc: "Collaborating and managing code versions through industry standards.",
-  },
-  {
-    name: "CI/CD",
-    logo: "https://simpleicons.org/icons/githubactions.svg",
-    desc: "Automating testing and deployment pipelines for faster releases.",
   },
   {
     name: "AI & Data Science",
