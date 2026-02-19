@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.demo.in"),
+  metadataBase: new URL("https://www.https://portfolio-weld-ten-00o6fw715f.vercel.app"),
 
   title: {
     default: "Subhajit Guchhait | Java Developer & Full Stack Developer",
@@ -30,7 +30,9 @@ export const metadata: Metadata = {
 
   description:
     "Subhajit Guchhait - Full Stack Developer specializing in scalable web applications using Java, Spring Boot, and modern cloud technologies.",
-
+      verification: {
+    google: "bvvuGvwNwZjy4bka7CwFNVgG9rnwZbX6qYhbFKYBrjI",
+  },
   keywords: [
     "Subhajit Guchhait",
     "Full Stack Developer",
@@ -47,7 +49,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Subhajit Guchhait",
-      url: "https://www.demo.in",
+      url: "https://www.https://portfolio-weld-ten-00o6fw715f.vercel.app",
     },
   ],
 
@@ -80,7 +82,7 @@ export const metadata: Metadata = {
     title: "Subhajit Guchhait | Java Stack Developer",
     description:
       "Crafting scalable applications with Java, Spring Boot & Go.",
-    url: "https://www.demo.in",
+    url: "https://www.https://portfolio-weld-ten-00o6fw715f.vercel.app",
     siteName: "Subhajit Guchhait Portfolio",
     images: [
       {

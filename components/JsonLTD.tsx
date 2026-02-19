@@ -2,15 +2,14 @@ export function StructuredData() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Soumyadip Maity",
-    "url": "demo",
+    "name": "Subhajit Guchhait",
+    "url": "https://portfolio-weld-ten-00o6fw715f.vercel.app/",
     "image": "/certificate/my.jpg",
     "sameAs": [
-      "https://github.com/soumydip",
-      "https://www.linkedin.com/in/soumyadip-maity-183ba3310",
-      "https://twitter.com/soumyadip2maity",
-      "https://www.instagram.com/soumyadip2912",
-      "https://www.facebook.com/share/17ZUJY8DMC"
+      "https://github.com/SUBHAJITGUCHHAIT",
+      "www.linkedin.com/in/subhajit-guchhait-6209762b3",
+      "https://www.instagram.com/subhajit_guchhait_0/",
+      "https://leetcode.com/u/Subhajit_Guchhait/"
     ],
     "jobTitle": "Full Stack Developer",
     "description": "Full Stack Developer specializing in MERN stack, Next.js, Typescript and AI solutions.",
@@ -25,15 +24,9 @@ export function StructuredData() {
     },
     "knowsAbout": [
       "Full Stack Development",
-      "MERN Stack",
-      "Next.js",
-      "React.js",
-      "Node.js",
       "Python",
       "Artificial Intelligence",
-      "TypeScript",
       "MongoDB",
-      "Express.js",
       "Data Structures and Algorithms",
       "REST APIs",
       "Cloud Deployment"
@@ -44,7 +37,7 @@ export function StructuredData() {
       "addressRegion": "West Bengal",
       "addressCountry": "IN"
     },
-     "email": "mailto:maitysoumyadip22@gmail.com",
+     "email": "mailto:subhajitguchhait12@gmail.com",
     "gender": "Male",
     "nationality": "Indian"
   };

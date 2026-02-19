@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "demositemap.xml",
+    sitemap: "https://portfolio-weld-ten-00o6fw715f.vercel.app/sitemap.xml",
   };
 }
