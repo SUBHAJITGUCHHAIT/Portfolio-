@@ -23,7 +23,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-purple-600 font-bold tracking-[0.15em] md:tracking-[0.2em] uppercase text-[10px] xs:text-xs md:text-sm mb-4">
-              Building the Future of Web
+              Building the Future with Technology
             </h2>
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-black text-slate-900 dark:text-white leading-[1.1] md:leading-[1.1] lg:leading-[0.9] mb-6">
               FULL STACK <br />
@@ -41,10 +41,12 @@ export default function Home() {
           >
             I&apos;m{" "}
             <span className="text-slate-900 dark:text-white underline decoration-purple-500/30 underline-offset-4 font-bold">
-              Soumyadip
+              Subhajit
             </span>
-            , Specializing in MERN & TypeScript to craft scalable web
-            applications and AI solutions.
+            , I specialize in Spring Boot and Go, enabling scalable microservices,
+RESTful APIs, and high-performance systems for modern web and AI
+applications.
+
           </motion.p>
 
           <motion.div
@@ -93,12 +95,13 @@ export default function Home() {
               className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-96 lg:h-96 rounded-[2rem] md:rounded-[3.5rem] overflow-hidden border-2 border-slate-200 dark:border-slate-800 p-1.5 md:p-2 bg-white dark:bg-slate-900 shadow-2xl group-hover:border-purple-500/50 transition-colors duration-500"
             >
               <Image
-                src="https://res.cloudinary.com/dkqi9h8yw/image/upload/v1768277924/qcywx8qervf0iirwbmvu.png"
-                alt="Soumyadip"
+                src="/certificates/my.jpg"
+                alt="Subhajit"
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
-                className="object-cover p-1.5 md:p-2 rounded-[1.8rem] md:rounded-[3.3rem] group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw "
+                className="object-cover  p-1.5 md:p-2 rounded-[1.8rem] md:rounded-[3.3rem] group-hover:scale-105 transition-transform duration-700"
                 priority
+                id="mylogo"
               />
             </motion.div>
 
@@ -113,7 +116,7 @@ export default function Home() {
                 size={20}
               />
               <p className="text-[10px] md:text-sm font-bold text-slate-800 dark:text-slate-200 leading-snug">
-                &ldquo;Code is my language, and the web is my canvas.&rdquo;
+                &ldquo;Every Bug Is just Logic Waiting To Be UnderStood.&rdquo;
               </p>
             </motion.div>
           </div>

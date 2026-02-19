@@ -10,43 +10,45 @@ import {
   Facebook,
   Mail,
   ArrowUpRight,
+  Globe2,
 } from "lucide-react";
 
 const socialLinks = [
   {
     name: "GitHub",
     icon: <Github size={20} />,
-    link: "https://github.com/soumydip",
+    link: "https://github.com/SUBHAJITGUCHHAIT",
     color: "hover:text-black dark:hover:text-white",
   },
   {
     name: "LinkedIn",
     icon: <Linkedin size={20} />,
-    link: "https://www.linkedin.com/in/soumyadip-maity-183ba3310/",
+    link: "www.linkedin.com/in/subhajit-guchhait-6209762b3",
     color: "hover:text-blue-600 dark:hover:text-blue-400",
-  },
-  {
-    name: "X",
-    icon: <Twitter size={20} />,
-    link: "https://x.com/soumyadip2maity",
-    color: "hover:text-sky-500 dark:hover:text-sky-400",
   },
   {
     name: "Instagram",
     icon: <Instagram size={20} />,
-    link: "https://www.instagram.com/soumyadip2912/",
+    link: "https://www.instagram.com/subhajit_guchhait_0/",
     color: "hover:text-pink-500 dark:hover:text-pink-400",
   },
   {
+  name: "LeetCode",
+  icon: <Globe2 size={20} />,
+  link: "https://leetcode.com/u/Subhajit_Guchhait/",
+  color: "hover:text-orange-500 dark:hover:text-orange-400",
+},
+
+  {
     name: "Email",
     icon: <Mail size={20} />,
-    link: "mailto:maitysoumyadip22@gmail.com",
+    link: "mailto:subhajitguchhait12@gmail.com",
     color: "hover:text-purple-600 dark:hover:text-purple-400",
   },
   {
     name: "Facebook",
     icon: <Facebook size={20} />,
-    link: "https://www.facebook.com/share/17ZUJY8DMC/",
+    link: "https://www.facebook.com/subhajit.guchhait.2025/",
     color: "hover:text-blue-700 dark:hover:text-blue-500",
   }
 ];

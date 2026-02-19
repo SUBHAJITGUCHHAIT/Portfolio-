@@ -3,8 +3,8 @@ export function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Soumyadip Maity",
-    "url": "https://portfolio-delta-lac-26.vercel.app/",
-    "image": "https://res.cloudinary.com/dkqi9h8yw/image/upload/v1768277924/qcywx8qervf0iirwbmvu.png",
+    "url": "demo",
+    "image": "/certificate/my.jpg",
     "sameAs": [
       "https://github.com/soumydip",
       "https://www.linkedin.com/in/soumyadip-maity-183ba3310",

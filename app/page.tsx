@@ -34,7 +34,7 @@ export default function Page() {
       <About />
       <Skills />
       <Achievements />
-      <Projects />
+      {/* <Projects /> */}
       <Education/>
       <Contact />
       <Footer />

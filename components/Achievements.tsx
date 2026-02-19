@@ -9,23 +9,28 @@ const certificates = [
     title: "Python Programming Training",
     issuer: "Academy of Skill Development",
     date: "Dec 2023",
-    image: "/certificates/python.jpeg",
+    image: "/certificates/python.png",
     credentialId: "ASDF/PYT/SWA/A+/47677",
   },
   {
-    title: "Design & Analysis of Algorithms",
-    issuer: "NPTEL",
-    date: "Apr 2025",
-    image: "/certificates/daa.png",
-    credentialId: "NPTEL25CS23S44980034401313077",
+    title: "IBM PY0101EN Certificate _ Cognitive Class",
+    issuer: "IBM PY0101EN Certificate",
+    date: "July 2025",
+    image: "/certificates/ibm.png",
   },
   {
     title: "React Development",
     issuer: "ARDENT COMPUTECH PVT LTD",
     date: "July 2024",
-    image: "/certificates/react.jpeg",
-    credentialId: "ARDENT/131991",
+    image: "/certificates/react.jpg",
+    credentialId: "ARDENT/131981",
   },
+  {
+    title: "Data analytics from IBM",
+    issuer: "IBM",
+    date: "July 2024",
+    image: "/certificates/analysis.jpeg",
+  }
 ];
 
 export default function Achievements() {

@@ -154,3 +154,8 @@
     @apply bg-purple-400;
   }
 }
+
+#mylogo{
+  object-fit: cover;
+  height: 500px;
+}

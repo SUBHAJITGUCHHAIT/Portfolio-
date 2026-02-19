@@ -18,34 +18,9 @@ const skills = [
     desc: "The core language for building interactive and dynamic web logic.",
   },
   {
-    name: "TypeScript",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-    desc: "Enhancing code reliability with static typing and modern features.",
-  },
-  {
     name: "React.js",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     desc: "Building component-based user interfaces with efficient state management.",
-  },
-  {
-    name: "Next.js",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-    desc: "Developing SEO-friendly, high-performance full-stack applications.",
-  },
-  {
-    name: "Node.js",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-    desc: "Powering server-side applications with fast and scalable execution.",
-  },
-  {
-    name: "Express.js",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
-    desc: "Creating robust REST APIs and back-end services with minimal overhead.",
-  },
-  {
-    name: "MongoDB",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-    desc: "Designing flexible NoSQL databases for modern web applications.",
   },
   {
     name: "SQL",
@@ -53,20 +28,22 @@ const skills = [
     desc: "Managing structured data and optimizing complex database queries.",
   },
   {
-    name: "Tailwind CSS",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-    desc: "Crafting modern, responsive designs with utility-first CSS.",
-  },
+  name: "Spring Boot",
+  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+  desc: "Building production-ready, enterprise-grade Java applications with minimal configuration using the Spring Boot framework.",
+},
+
   {
-    name: "Bootstrap",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
-    desc: "Quickly prototyping and styling responsive grid-based layouts.",
-  },
-  {
-    name: "Radix UI",
-    logo: "https://simpleicons.org/icons/radixui.svg",
-    desc: "Building accessible and unstyled UI components for React.",
-  },
+  name: "Java",
+  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  desc: "Building robust, object-oriented applications for web, enterprise, and Android development using the Java ecosystem.",
+},
+{
+  name: "Go",
+  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
+  desc: "Developing fast, scalable, and concurrent applications using Go, ideal for cloud-native services and microservices architecture.",
+},
+
   {
     name: "Git & GitHub",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",

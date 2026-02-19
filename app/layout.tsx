@@ -21,51 +21,41 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-delta-lac-26.vercel.app/"),
+  metadataBase: new URL("https://www.demo.in"),
 
   title: {
-    default: "Soumyadip Maity | Full Stack Developer & AI Enthusiast",
-    template: "%s | Soumyadip Maity",
+    default: "Subhajit Guchhait | Java Developer & Full Stack Developer",
+    template: "%s | Subhajit Guchhait",
   },
 
   description:
-    "Soumyadip Maity - Full Stack Developer crafting scalable web applications with MERN Stack, Next.js & AI. Available for freelance projects.",
+    "Subhajit Guchhait - Full Stack Developer specializing in scalable web applications using Java, Spring Boot, and modern cloud technologies.",
 
   keywords: [
-    "Soumyadip Maity",
+    "Subhajit Guchhait",
     "Full Stack Developer",
-    "MERN Stack Developer",
-
-    "Web Developer Kolkata",
-    "Full Stack Developer India",
-    "Developer West Bengal",
-
-    "React Developer",
-    "Next.js Developer",
-    "Node.js Developer",
-    "TypeScript Developer",
-    "MongoDB Developer",
-    "Express.js Developer",
-    "Typescript Developer",
-    "Freelance Web Developer",
-    "AI Solutions Developer",
     "Software Engineer",
+    "Spring Boot Developer",
+    "Java Developer",
+    "Android Developer",
+    "Cloud Engineer",
+    "REST API Developer",
+    "AI Solutions Developer",
+    "Freelance Web Developer",
   ],
 
   authors: [
     {
-      name: "Soumyadip Maity",
-      url: "https://portfolio-delta-lac-26.vercel.app/",
+      name: "Subhajit Guchhait",
+      url: "https://www.demo.in",
     },
   ],
-  creator: "Soumyadip Maity",
-  publisher: "Soumyadip Maity",
+
+  creator: "Subhajit Guchhait",
+  publisher: "Subhajit Guchhait",
 
   category: "Technology",
   classification: "Portfolio Website",
-  verification: {
-    google: "sNv55sfGvBeZ7asoFMOnxlrAWg8zY5Byk8gV0znbAtM",
-  },
 
   robots: {
     index: true,
@@ -83,27 +73,21 @@ export const metadata: Metadata = {
     canonical: "/",
   },
 
-  icons: {
-    icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    ],
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-  manifest: "/site.webmanifest",
+  // ❌ icons removed
+  // ❌ manifest removed
+
   openGraph: {
-    title: "Soumyadip Maity | Full Stack Developer",
+    title: "Subhajit Guchhait | Java Stack Developer",
     description:
-      "Crafting scalable web applications with MERN Stack, Next.js & Typescript.",
-    url: "https://portfolio-delta-lac-26.vercel.app/",
-    siteName: "Soumyadip Maity Portfolio",
+      "Crafting scalable applications with Java, Spring Boot & Go.",
+    url: "https://www.demo.in",
+    siteName: "Subhajit Guchhait Portfolio",
     images: [
       {
-        url: "https://res.cloudinary.com/dkqi9h8yw/image/upload/v1768277924/qcywx8qervf0iirwbmvu.png",
+        url: "/certificates/my.jpg",
         width: 1200,
         height: 630,
-        alt: "Soumyadip Maity - Full Stack Developer Portfolio",
+        alt: "Subhajit Guchhait - Java Stack Developer Portfolio",
         type: "image/png",
       },
     ],
@@ -113,24 +97,20 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Soumyadip Maity | Full Stack Developer",
+    title: "Subhajit Guchhait | Java Stack Developer",
     description:
-      "Crafting scalable web apps with MERN Stack, Next.js & Typescript. View my projects →",
-    images: ["https://res.cloudinary.com/dkqi9h8yw/image/upload/v1768277924/qcywx8qervf0iirwbmvu.png"],
-    creator: "@soumyadip2maity",
-    site: "@soumyadip2maity",
-  },
-
-  other: {
-    "google-site-verification": "sNv55sfGvBeZ7asoFMOnxlrAWg8zY5Byk8gV0znbAtM",
+      "Crafting scalable applications with Java, Spring Boot & Go.",
+    images: ["/certificates/my.jpg"],
+    creator: "@subhajitguchhait",
+    site: "@subhajitguchhait",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>

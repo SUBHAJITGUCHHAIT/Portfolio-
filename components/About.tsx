@@ -33,7 +33,7 @@ export default function About() {
           </motion.div>
 
           <p className="mt-4 text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
-            I build modern web systems that balance performance, simplicity and
+            I build modern backend systems that balance performance, simplicity and
             long-term maintainability.
           </p>
         </div>
@@ -45,53 +45,86 @@ export default function About() {
           className="space-y-8"
         >
           <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-            My journey into web development started with curiosity about how
-            digital systems work. Over time, that curiosity turned into a strong
-            focus on building high-performance applications using
-            <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
-              TypeScript
-            </span>
-            ,
-            <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
-              Python
-            </span>
-            and modern frameworks.
-          </p>
+  I started my journey into full-stack development with a curiosity about how
+  digital systems work. Over time, that curiosity turned into a strong focus on
+  building high-performance applications using
+  <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
+    Java
+  </span>
+  ,
+  <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
+    Python
+  </span>
+  , and modern frameworks.
+</p>
 
-          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-            I enjoy working with stacks like
-            <span className="font-medium  mx-2 text-purple-600 dark:text-purple-500">
-              MERN
-            </span>
-            and
-            <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
-              Next.js
-            </span>
-            , focusing on clean architecture, scalability and developer
-            experience. Recently, I’ve been exploring how AI can enhance
-            everyday web products.
-          </p>
+<p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+  I am especially interested in core computer science concepts like
+  <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
+    Networking
+  </span>
+  ,
+  <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
+    Operating Systems
+  </span>
+  ,
+  <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
+    DBMS
+  </span>
+  , and
+  <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
+    Data Structures & Algorithms
+  </span>
+  , which help me understand how applications work internally.
+</p>
 
-          <div
-            className="
-              rounded-xl
-              border border-slate-200/60 dark:border-slate-800
-              bg-gray-300/50 dark:bg-slate-900/50
-              backdrop-blur-md
-              px-6 py-5
-            "
-          >
-            <p className="text-slate-700 dark:text-slate-300 italic leading-relaxed">
-              “I believe great software is built when clarity, performance and
-              simplicity come together.”
-            </p>
-          </div>
+<p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+  On the backend, I enjoy building applications using
+  <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
+    Spring Boot
+  </span>
+  ,
+  <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
+    Servlets
+  </span>
+  ,
+  <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
+    JDBC
+  </span>
+  , and
+  <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
+    JSP
+  </span>
+  , while applying concepts like
+  <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
+    Multithreading
+  </span>
+  for better performance and scalability.
+</p>
 
-          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-            Beyond coding, I enjoy learning new technologies and contributing to
-            open-source projects. Continuous learning keeps my work fresh and
-            future-ready.
-          </p>
+<div
+  className="
+    rounded-xl
+    border border-slate-200/60 dark:border-slate-800
+    bg-gray-300/50 dark:bg-slate-900/50
+    backdrop-blur-md
+    px-6 py-5
+  "
+>
+  <p className="text-slate-700 dark:text-slate-300 italic leading-relaxed">
+    “Coming together is a beginning, keeping together is progres, Working together is Success.”
+  </p>
+</div>
+
+<p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+  Beyond coding, I enjoy strengthening my fundamentals through platforms like
+  <span className="font-medium mx-2 text-purple-600 dark:text-purple-500">
+    NPTEL
+  </span>
+  , practicing DSA regularly, and exploring how AI can improve everyday web
+  products. Continuous learning keeps my skills sharp and future-ready.
+</p>
+
         </motion.div>
       </div>
     </section>
