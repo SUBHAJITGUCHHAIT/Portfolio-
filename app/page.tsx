@@ -18,9 +18,6 @@ const Skills = dynamic(() => import("@/components/Skill"), {
   ssr: true,
 });
 
-const Projects = dynamic(() => import("@/components/ProjectShowcase"), {
-  ssr: true,
-});
 
 const Contact = dynamic(() => import("@/components/Contact"), {
   ssr: true,
@@ -34,7 +31,7 @@ export default function Page() {
       <About />
       <Skills />
       <Achievements />
-      {/* <Projects /> */}
+     
       <Education/>
       <Contact />
       <Footer />
