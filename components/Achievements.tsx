@@ -30,6 +30,28 @@ const certificates = [
     issuer: "IBM",
     date: "July 2024",
     image: "/certificates/analysis.jpeg",
+  },
+  {
+    title: "Programming in Java from NPTEL",
+    issuer: "IIT Kharagpur",
+    date: "May 2026",
+    image: "/certificates/Programming in Java.jpg",
+    credentialId: "NPTEL26CS36S757500203"
+  },
+  {
+    title: "Java Internship",
+    issuer: "Internship Studio(iSTUDIO)",
+    date: "June 2026",
+    image: "/certificates/Java Internship - Internship.jpg",
+    credentialId:"ISJVAI3262818"
+
+  },
+  {
+    title: "Java Internship Training",
+    issuer: "iSTUDIO",
+    date: "June 2026",
+    image: "/certificates/Java Internship - Training.jpg",
+    credentialId:"ISJVAT3262818"
   }
 ];
 
